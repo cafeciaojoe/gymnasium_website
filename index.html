@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drone Gymnasium</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Drone Gymnasium</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to the Drone Gymnasium</h1>
+      <p>Your premier indoor space for drone flying, training, and competition.</p>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        The Drone Gymnasium is a dedicated indoor facility designed for drone pilots of all skill levels.
+        Whether you are a beginner learning to hover or an experienced racer pushing top speeds, our space
+        has everything you need to fly safely and improve your skills.
+      </p>
+    </div>
+  </section>
+
+  <!-- Facilities Section -->
+  <section id="facilities" class="section section-alt">
+    <div class="container">
+      <h2>Facilities</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Open Flying Arena</h3>
+          <p>A large open area for free flight, practice maneuvers, and freestyle flying.</p>
+        </div>
+        <div class="card">
+          <h3>Racing Track</h3>
+          <p>A purpose-built racing course with gates, flags, and timing systems.</p>
+        </div>
+        <div class="card">
+          <h3>Training Zone</h3>
+          <p>A beginner-friendly zone with obstacles designed for skill development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section id="schedule" class="section">
+    <div class="container">
+      <h2>Schedule</h2>
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Open Flying</th>
+            <th>Races &amp; Events</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday – Friday</td>
+            <td>10:00 AM – 8:00 PM</td>
+            <td>By appointment</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>9:00 AM – 9:00 PM</td>
+            <td>2:00 PM – 6:00 PM</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>10:00 AM – 6:00 PM</td>
+            <td>12:00 PM – 4:00 PM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Have questions or want to book the facility? Reach out below.</p>
+      <form class="contact-form" action="#" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Drone Gymnasium. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
