@@ -1,0 +1,423 @@
+/*
+  ================================================================
+  styles.css — Stylesheet for the Drone Gymnasium website
+  ================================================================
+
+  HOW CSS WORKS
+  -------------
+  A CSS rule has two parts:
+    1. A SELECTOR  — targets the HTML element(s) you want to style
+    2. A BLOCK     — contains one or more declarations enclosed in { }
+
+  Each declaration is a property-value pair:
+    property: value;
+
+  Example:
+    h1 {
+      color: navy;        ← property: color, value: navy
+      font-size: 2rem;    ← property: font-size, value: 2rem
+    }
+
+  UNITS QUICK REFERENCE
+  ---------------------
+  px   — pixels (fixed size)
+  rem  — relative to the root font size (usually 16px → 1rem = 16px)
+  em   — relative to the current element's font size
+  %    — percentage of the parent element's size
+  vw   — viewport width  (100vw = full browser width)
+  vh   — viewport height (100vh = full browser height)
+================================================================
+*/
+
+
+/* ================================================================
+   1. CSS RESET / BASE STYLES
+   Browsers apply their own default styles. This section creates a
+   consistent starting point across all browsers.
+================================================================ */
+
+/*
+  The asterisk (*) is the universal selector — it matches every element.
+  box-sizing: border-box makes width/height include padding and border,
+  which makes layout math much easier.
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;   /* Remove default browser margins */
+  padding: 0;  /* Remove default browser padding */
+}
+
+/*
+  Set default font and line-height for the whole page.
+  font-family lists fonts in order of preference; "sans-serif" is the
+  generic fallback if none of the named fonts are available.
+*/
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;           /* Space between lines of text */
+  color: #333333;             /* Dark grey — easier on eyes than pure black */
+  background-color: #f5f5f5;  /* Light grey page background */
+}
+
+
+/* ================================================================
+   2. HEADER
+================================================================ */
+
+header {
+  background-color: #1a1a2e;  /* Deep navy — strong brand colour */
+  color: #ffffff;             /* White text for contrast */
+  text-align: center;         /* Centre all text inside the header */
+  padding: 2rem 1rem;         /* 2rem top/bottom, 1rem left/right */
+}
+
+header h1 {
+  font-size: 2.5rem;
+  /*
+    letter-spacing adds space between each character — looks great
+    for titles and headings.
+  */
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  /* opacity lowers the transparency slightly for a softer look */
+  opacity: 0.85;
+}
+
+
+/* ================================================================
+   3. NAVIGATION BAR
+================================================================ */
+
+nav {
+  background-color: #16213e;  /* Slightly lighter than the header */
+  /* 
+    position: sticky keeps the nav visible as the user scrolls.
+    top: 0 pins it to the top of the viewport.
+    z-index: 100 makes sure it appears above other content.
+  */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/*
+  "nav ul" is a descendant selector — it targets <ul> elements
+  that are INSIDE a <nav> element.
+*/
+nav ul {
+  /*
+    display: flex turns the <ul> into a "flex container".
+    Its children (the <li> items) line up in a row automatically.
+    Flexbox is the modern way to create horizontal or vertical layouts.
+  */
+  display: flex;
+  list-style: none;  /* Remove the default bullet points */
+  /* justify-content: center centres the items horizontally */
+  justify-content: center;
+  padding: 0;
+}
+
+nav ul li a {
+  /*
+    display: block makes the link fill the whole <li> cell,
+    so the clickable area is larger — better user experience.
+  */
+  display: block;
+  color: #e0e0e0;         /* Light grey text */
+  text-decoration: none;  /* Remove the default underline on links */
+  padding: 1rem 1.5rem;
+  /*
+    transition animates changes to the listed properties.
+    "background-color 0.3s ease" means:
+      - animate the background-color
+      - over 0.3 seconds
+      - with an "ease" (slow → fast → slow) timing curve
+  */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/*
+  ":hover" is a pseudo-class — it applies styles only when the
+  user hovers their mouse over the element.
+*/
+nav ul li a:hover {
+  background-color: #0f3460;  /* Darker background on hover */
+  color: #e94560;             /* Accent colour for the text */
+}
+
+
+/* ================================================================
+   4. MAIN CONTENT WRAPPER
+================================================================ */
+
+main {
+  /*
+    max-width limits how wide the content grows on large screens.
+    margin: 0 auto centres a block element horizontally.
+  */
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;  /* Space around the content */
+}
+
+
+/* ================================================================
+   5. SECTIONS
+================================================================ */
+
+section {
+  /*
+    margin-bottom adds space BELOW each section,
+    separating it from the next one.
+  */
+  margin-bottom: 3rem;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  color: #1a1a2e;           /* Match the header colour for consistency */
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  /*
+    border-bottom draws a line under the heading.
+    "3px solid #e94560" = 3 pixels thick, solid line, accent colour.
+  */
+  border-bottom: 3px solid #e94560;
+}
+
+section p {
+  margin-bottom: 1rem;  /* Space between consecutive paragraphs */
+}
+
+
+/* ================================================================
+   6. CARD GRID (Facilities section)
+================================================================ */
+
+/*
+  ".card-grid" targets elements with class="card-grid".
+  (The dot . means "class" in CSS selectors.)
+*/
+.card-grid {
+  display: flex;
+  /*
+    flex-wrap: wrap lets items move to the next row when there
+    isn't enough horizontal space (e.g., on a narrow screen).
+  */
+  flex-wrap: wrap;
+  /*
+    gap adds space between flex items — cleaner than using margins.
+  */
+  gap: 1.5rem;
+}
+
+.card {
+  /*
+    flex: 1 1 250px means:
+      - flex-grow: 1   → the card can grow to fill extra space
+      - flex-shrink: 1 → the card can shrink if needed
+      - flex-basis: 250px → start at 250px wide before growing/shrinking
+    This creates a responsive multi-column layout automatically.
+  */
+  flex: 1 1 250px;
+  background-color: #ffffff;
+  border-radius: 8px;        /* Rounded corners */
+  padding: 1.5rem;
+  /*
+    box-shadow adds a shadow beneath the card.
+    Format: offset-x offset-y blur-radius spread-radius colour
+  */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /*
+    Animate the transform and box-shadow properties for the hover effect.
+  */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  /*
+    translateY(-4px) moves the card 4px upward — gives a "lift" effect.
+  */
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: #0f3460;
+  margin-bottom: 0.75rem;
+}
+
+
+/* ================================================================
+   7. TABLE (Schedule section)
+================================================================ */
+
+table {
+  /*
+    width: 100% makes the table fill the full width of its container.
+  */
+  width: 100%;
+  /*
+    border-collapse: collapse removes the double-border that appears
+    between adjacent cells by default.
+  */
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;  /* Clip content so border-radius is visible */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Target both header cells (th) and data cells (td) */
+th, td {
+  padding: 0.9rem 1.2rem;
+  text-align: left;
+}
+
+thead {
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
+/*
+  "tbody tr:nth-child(even)" targets every second row in the tbody —
+  a classic "zebra striping" pattern that makes tables easier to read.
+*/
+tbody tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+tbody tr:hover {
+  background-color: #dce8ff;  /* Highlight row on hover */
+}
+
+
+/* ================================================================
+   8. CONTACT FORM
+================================================================ */
+
+form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /*
+    display: flex + flex-direction: column stacks the form fields
+    vertically, one on top of the other.
+  */
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;  /* Space between each label/input pair */
+}
+
+label {
+  font-weight: bold;  /* Make labels stand out from the input text */
+  font-size: 0.95rem;
+}
+
+/*
+  "input, textarea" is a grouped selector — the styles apply to BOTH
+  element types at once.
+*/
+input, textarea {
+  padding: 0.75rem;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  /*
+    font-family: inherit makes form fields use the same font as the
+    rest of the page (browsers often use a different default font
+    for form elements).
+  */
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+/*
+  ":focus" applies when the element has keyboard/mouse focus.
+  "outline: none" removes the default browser focus ring so we
+  can replace it with our own custom style below.
+*/
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #0f3460;  /* Highlight the active field */
+}
+
+button {
+  padding: 0.85rem 2rem;
+  background-color: #e94560;  /* Accent colour */
+  color: #ffffff;
+  border: none;               /* Remove default button border */
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;            /* Show a hand cursor on hover */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  /*
+    align-self: flex-start stops the button from stretching to
+    full width (the default flex behaviour).
+  */
+  align-self: flex-start;
+}
+
+button:hover {
+  background-color: #c73652;  /* Slightly darker on hover */
+}
+
+button:active {
+  /* :active fires while the button is being clicked */
+  transform: scale(0.97);  /* Subtle "press" effect */
+}
+
+
+/* ================================================================
+   9. FOOTER
+================================================================ */
+
+footer {
+  background-color: #1a1a2e;
+  color: #aaaaaa;       /* Muted grey text */
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+
+/* ================================================================
+   10. RESPONSIVE DESIGN
+       @media rules apply styles only when certain conditions are met.
+       This keeps the page looking good on smaller screens.
+================================================================ */
+
+/*
+  "max-width: 600px" means: apply these styles when the screen
+  is 600px wide or NARROWER (i.e., phones and small tablets).
+*/
+@media (max-width: 600px) {
+
+  header h1 {
+    font-size: 1.8rem;  /* Smaller title on small screens */
+  }
+
+  nav ul {
+    flex-wrap: wrap;     /* Allow nav links to wrap onto multiple rows */
+  }
+
+  nav ul li a {
+    padding: 0.75rem 1rem;
+  }
+
+  /* Stack cards vertically on small screens */
+  .card-grid {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;  /* Full-width button on small screens */
+  }
+}
