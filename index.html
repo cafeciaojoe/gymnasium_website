@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!-- 
+  DOCTYPE tells the browser this is an HTML5 document.
+  Always include this as the very first line of every HTML file.
+-->
+
+<!-- The <html> tag is the root (top-level) element of the whole page. -->
+<html lang="en">
+
+<head>
+  <!--
+    Everything inside <head> is metadata — information ABOUT the page
+    that the browser needs, but that visitors don't see directly.
+  -->
+
+  <!-- Set the character encoding so special characters display correctly. -->
+  <meta charset="UTF-8">
+
+  <!-- 
+    This meta tag makes your page look correct on phones and tablets.
+    Without it, mobile browsers zoom out and the text looks tiny.
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- The text that appears in the browser tab. -->
+  <title>Drone Gymnasium</title>
+
+  <!-- 
+    Link to our external CSS file.
+    "rel" tells the browser this is a stylesheet.
+    "href" is the path to the file (same folder as index.html).
+  -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!--
+    Everything inside <body> is what visitors actually see on the page.
+    We'll build our page in sections: header, nav, main content, and footer.
+  -->
+
+  <!-- ============================================================
+       HEADER
+       A <header> usually contains the site's name/logo and tagline.
+  ============================================================ -->
+  <header>
+    <!-- <h1> is the most important heading on the page. Use only one per page. -->
+    <h1>Drone Gymnasium</h1>
+
+    <!-- A short description shown under the main title. -->
+    <p>Your premier indoor facility for drone flight training and racing</p>
+  </header>
+
+  <!-- ============================================================
+       NAVIGATION BAR
+       <nav> holds the links that let visitors move around the site.
+  ============================================================ -->
+  <nav>
+    <!-- 
+      <ul> = unordered list (bullet points by default).
+      <li> = list item — each link lives inside one of these.
+      <a href="..."> = anchor (link) tag; href is where the link goes.
+      "#section-id" jumps to an element with that id on the same page.
+    -->
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#facilities">Facilities</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       <main> wraps the primary content of the page.
+       Search engines and screen readers use it to find the key content.
+  ============================================================ -->
+  <main>
+
+    <!-- ---- ABOUT SECTION ----------------------------------------
+         id="about" lets the nav link "#about" jump straight here.
+    ------------------------------------------------------------- -->
+    <section id="about">
+      <!-- <h2> is a second-level heading — use these for section titles. -->
+      <h2>About Us</h2>
+
+      <!-- <p> is a paragraph — the basic building block of body text. -->
+      <p>
+        Welcome to the Drone Gymnasium! We provide a safe, controlled indoor
+        environment where pilots of all skill levels can practice flying,
+        improve their technique, and compete with others.
+      </p>
+      <p>
+        Whether you're a first-time flyer or an experienced racer, our
+        facility has something for everyone.
+      </p>
+    </section>
+
+    <!-- ---- FACILITIES SECTION ---------------------------------- -->
+    <section id="facilities">
+      <h2>Our Facilities</h2>
+
+      <!-- 
+        A <div> is a generic container — useful for grouping elements
+        together so you can style or position them as a unit.
+        The "class" attribute lets CSS target all elements that share
+        the same class name.
+      -->
+      <div class="card-grid">
+
+        <!-- Each "card" is a self-contained block of related information. -->
+        <div class="card">
+          <!-- <h3> is a third-level heading — used inside sections. -->
+          <h3>Training Arena</h3>
+          <p>A spacious 5,000 sq ft open flight zone perfect for beginners
+             learning the basics of drone control.</p>
+        </div>
+
+        <div class="card">
+          <h3>Racing Circuit</h3>
+          <p>A dedicated FPV racing track with adjustable gates, obstacles,
+             and a live timing system for competitive pilots.</p>
+        </div>
+
+        <div class="card">
+          <h3>Repair Workshop</h3>
+          <p>A fully equipped workshop with tools and spare parts so you
+             can fix your drone and get back in the air quickly.</p>
+        </div>
+
+      </div><!-- end .card-grid -->
+    </section>
+
+    <!-- ---- SCHEDULE SECTION ------------------------------------ -->
+    <section id="schedule">
+      <h2>Weekly Schedule</h2>
+
+      <!-- 
+        A <table> displays data in rows and columns.
+        <thead> = the header row(s)
+        <tbody> = the data rows
+        <tr>    = a table row
+        <th>    = a header cell (bold by default)
+        <td>    = a data cell
+      -->
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Session</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>9 am – 12 pm</td>
+            <td>Beginner Open Fly</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>6 pm – 9 pm</td>
+            <td>Advanced Training</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>6 pm – 10 pm</td>
+            <td>FPV Race Night</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>10 am – 4 pm</td>
+            <td>All-Day Open Fly</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ---- CONTACT SECTION ------------------------------------- -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+
+      <!-- 
+        A <form> collects input from the visitor.
+        action="" — where the form data is sent (leave blank for now).
+        method="post" — how it's sent (post keeps data out of the URL).
+      -->
+      <form action="" method="post">
+
+        <!-- 
+          <label> describes what an input is for.
+          for="input-id" links the label to its input — clicking the
+          label will focus the input, which helps accessibility.
+        -->
+        <label for="name">Your Name</label>
+        <!-- 
+          <input> is a single-line text field.
+          type="text"  — plain text
+          id="name"    — matches the label's for attribute
+          name="name"  — used when the form is submitted
+          placeholder  — grey hint text shown when the field is empty
+        -->
+        <input type="text" id="name" name="name" placeholder="Jane Smith">
+
+        <label for="email">Email Address</label>
+        <!-- type="email" tells the browser to validate email format. -->
+        <input type="email" id="email" name="email" placeholder="jane@example.com">
+
+        <label for="message">Message</label>
+        <!-- 
+          <textarea> is a multi-line text field.
+          rows="5" sets the default visible height.
+        -->
+        <textarea id="message" name="message" rows="5"
+                  placeholder="Tell us about your experience level or any questions you have..."></textarea>
+
+        <!-- <button type="submit"> sends the form when clicked. -->
+        <button type="submit">Send Message</button>
+
+      </form>
+    </section>
+
+  </main><!-- end <main> -->
+
+  <!-- ============================================================
+       FOOTER
+       A <footer> typically holds copyright info, secondary links, etc.
+  ============================================================ -->
+  <footer>
+    <!--
+      &copy; is an HTML entity — a special code for the © symbol.
+      Other useful entities: &amp; (&), &lt; (<), &gt; (>), &nbsp; (non-breaking space).
+    -->
+    <p>&copy; 2024 Drone Gymnasium. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
