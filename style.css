@@ -118,7 +118,7 @@ h3 {
 
 p {
     font-size: 20px;
-    text-align: justify;
+    text-align: left;
     color: #ffffff;
     font-family: 'Montserrat', sans-serif; 
     font-weight: 300;
@@ -128,7 +128,7 @@ p {
 /* small text */
 .p2 { 
     font-size: 14px;
-    text-align: justify;
+    text-align: center;
     color: #ffffff;
     font-family: 'Montserrat', sans-serif; 
     font-weight: 300;
