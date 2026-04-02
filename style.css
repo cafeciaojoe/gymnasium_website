@@ -197,6 +197,6 @@ p, h1, h2, h3 {
 }
 
 .image-center img {
-    max-width: 40%;         /* Ensures it doesn't break your 800px container */
+    max-width: 50%;         /* Ensures it doesn't break your 800px container */
     height: auto;            /* Keeps the proportions correct */
 }
