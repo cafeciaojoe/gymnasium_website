@@ -188,3 +188,15 @@ p, h1, h2, h3 {
     height: 100%;
     border: none;          /* Removes the default border */
 }
+
+.image-center {
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center;
+    padding: 10px 0;         /* Adds some breathing room above/below */
+}
+
+.image-center img {
+    max-width: 40%;         /* Ensures it doesn't break your 800px container */
+    height: auto;            /* Keeps the proportions correct */
+}
