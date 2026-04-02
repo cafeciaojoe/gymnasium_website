@@ -97,7 +97,7 @@ h1 {
 }
 
 h2 {
-    color: rgb(255, 255, 255);
+    color: rgb(85, 204, 255);
     font-family: 'Liar-Halftone', serif;
     font-weight: normal;
     font-style: normal;
@@ -118,12 +118,22 @@ h3 {
 
 p {
     font-size: 20px;
-    text-align: center;
+    text-align: justify;
     color: #ffffff;
     font-family: 'Montserrat', sans-serif; 
     font-weight: 300;
    
 }
+
+/* small text */
+.p2 { 
+    font-size: 14px;
+    text-align: justify;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 300;
+}
+
 
 .fix-gap {
     /* This is exactly 40% of whatever the current font size is */
@@ -144,4 +154,37 @@ p {
 p, h1, h2, h3 {
     overflow-wrap: break-word;
     word-wrap: break-word;
+}
+
+.scroll-container {
+  overflow: hidden;       /* Hides text when it goes off-screen */
+  white-space: nowrap;    /* Prevents the text from wrapping to a new line */
+  background: #000;       /* Optional: background color */
+  padding: 1px 0;
+}
+
+.scrolling-text {
+  display: inline-block;
+  padding-left: 100%;     /* Starts the text just off the right edge */
+  animation: scroll-left 15s linear infinite; /* 15s is the speed */
+
+}
+
+/* The actual movement logic */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Responsive Video Wrapper */
+.video-wrapper {
+    width: 100%;           /* Fills the 800px container */
+    aspect-ratio: 16 / 9;  /* Keeps the classic YouTube shape */
+    margin: 20px 0;       /* Adds space above and below the video */
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;          /* Removes the default border */
 }
