@@ -131,3 +131,17 @@ p {
     margin-right: 0.4em; 
    
 }
+
+.container {
+    width: 100%;           /* Take up full width */
+    max-width: 800px;      /* But don't get wider than 800px on big monitors */
+    margin: 0 auto;        /* Center the box on the screen */
+    padding: 0 20px;       /* Adds 20px of "air" on the left/right so text doesn't touch the edge */
+    box-sizing: border-box; /* Makes sure the padding doesn't push the box off-screen */
+}
+
+/* This forces long words to break instead of pushing the screen wide */
+p, h1, h2, h3 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
